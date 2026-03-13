@@ -18,14 +18,15 @@ export default function About() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex-1 relative"
           >
-            <div className="relative aspect-[4/5] max-w-md mx-auto">
+            <div className="relative aspect-[4/5] max-w-md mx-auto overflow-hidden rounded-card">
               <div className="absolute -top-4 -right-4 w-full h-full border-2 border-accent rounded-card -z-10 translate-x-2 translate-y-2 opacity-50" />
               <div className="absolute inset-0 bg-accent/10 rounded-card mix-blend-overlay z-10" />
               <Image
                 src="/tal.png"
                 alt="טל חשמלאי מוסמך"
                 fill
-                className="object-cover rounded-card shadow-2xl"
+                className="object-cover rounded-card shadow-2xl object-top"
+                style={{ objectPosition: 'center 20%', transform: 'scale(1.8)', transformOrigin: 'top center' }}
               />
             </div>
           </motion.div>

@@ -9,8 +9,13 @@ const cities = [
 
 export default function Coverage() {
   return (
-    <section className="py-16 bg-surface border-y border-white/5">
-      <div className="container mx-auto px-6 text-center">
+    <section className="py-10 bg-surface border-y border-white/5 relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(245,196,0,0.04) 0%, transparent 70%)' }}
+        aria-hidden="true"
+      />
+      <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}

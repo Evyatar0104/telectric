@@ -14,7 +14,7 @@ interface CounterProps {
 function Counter({ end, suffix = "", duration = 1.8, isDecimal = false, shouldAnimate = true }: CounterProps) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3, margin: "-80px 0px 0px 0px" });
 
   useEffect(() => {
     if (isInView && shouldAnimate) {
@@ -66,17 +66,17 @@ export default function StatsBar() {
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3, margin: "-80px 0px 0px 0px" }}
         transition={{ duration: 0.4 }}
         className="container mx-auto px-6"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-80px 0px 0px 0px" }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="flex flex-col items-center text-center"
             >

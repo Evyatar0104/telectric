@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-6 justify-start items-center text-white/90">
+          <div className="flex flex-wrap gap-3 sm:gap-6 justify-center sm:justify-start items-center text-white/90">
             {[
               { icon: Zap, text: "ייעוץ ראשוני חינם" },
               { icon: Clock, text: "זמין 24 שעות" },
@@ -100,7 +100,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center"
       >
         <div className="w-px h-12 bg-gradient-to-b from-accent to-transparent" />
       </motion.div>

@@ -40,21 +40,10 @@ export default function FinalCTA() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              animate={{
-                x: [0, -4, 4, -4, 4, 0]
-              }}
-              transition={{
-                x: {
-                  delay: 4,
-                  duration: 0.4,
-                  repeat: Infinity,
-                  repeatDelay: 8,
-                }
-              }}
               href="https://api.whatsapp.com/send?phone=9720535250335&text=היי טל, ראיתי את האתר שלך ורוצה לשמוע פרטים"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 bg-accent text-black px-12 py-6 rounded-button text-2xl font-black hover:bg-yellow-400 hover:scale-105 transition-all group shadow-2xl shadow-accent/20"
+              className="wa-shake-btn inline-flex items-center gap-4 bg-accent text-black px-12 py-6 rounded-button text-2xl font-black hover:bg-yellow-400 hover:scale-105 transition-all group shadow-2xl shadow-accent/20"
             >
               <WhatsAppIcon size={32} />
               שלח לי WhatsApp

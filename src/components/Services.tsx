@@ -7,7 +7,8 @@ import {
   Lightbulb, 
   Cpu, 
   Car, 
-  AlertTriangle 
+  AlertTriangle,
+  ArrowRight
 } from "lucide-react";
 
 const services = [
@@ -96,6 +97,10 @@ export default function Services() {
               <p className="text-muted leading-relaxed">
                 {service.description}
               </p>
+              <a href="#contact" className="mt-auto pt-6 text-accent text-sm font-medium opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1">
+                <span>קבל הצעה</span>
+                <ArrowRight size={14} />
+              </a>
             </motion.div>
           ))}
         </div>

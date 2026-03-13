@@ -29,8 +29,11 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-white/60 text-sm font-medium">
-              טל חשמלאי מוסמך - פתרונות חשמל מתקדמים לבית ולעסק.
+            <p className="text-white/80 text-sm font-bold">
+              חשמלאי מוסמך באזור השרון והמרכז — לבית ולעסק.
+            </p>
+            <p className="text-[10px] text-white/40 mt-1">
+              כפר סבא · רעננה · הוד השרון · נתניה · הרצליה · תל אביב והסביבה
             </p>
           </div>
 

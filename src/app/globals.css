@@ -16,4 +16,22 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  @keyframes wa-shake {
+    0%, 100% { transform: translateX(0); }
+    10%       { transform: translateX(-4px); }
+    20%       { transform: translateX(4px); }
+    30%       { transform: translateX(-3px); }
+    40%       { transform: translateX(3px); }
+    50%       { transform: translateX(0); }
+  }
+
+  .wa-shake-btn {
+    animation: wa-shake 8s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-shake-btn { animation: none; }
 }

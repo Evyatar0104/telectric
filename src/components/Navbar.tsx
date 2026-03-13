@@ -9,12 +9,32 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [activeSegment, setActiveSegment] = useState("");
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    const sections = ['services', 'about', 'testimonials', 'contact'];
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSegment(entry.target.id);
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '-80px 0px 0px 0px' });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) spyObserver.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      spyObserver.disconnect();
+    };
   }, []);
 
   const navLinks = [
@@ -47,15 +67,22 @@ export default function Navbar() {
 
           {/* Center: Desktop Nav */}
           <div className="hidden md:flex items-center gap-8" dir="rtl">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSegment === link.href.substring(1);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`${
+                    isActive 
+                      ? "text-white border-b border-accent pb-0.5" 
+                      : "text-white/70"
+                  } hover:text-white text-sm font-medium transition-colors`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
           
           {/* Left side: Buttons */}
@@ -95,7 +122,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-8 items-center py-10">
               {navLinks.map((link) => (
