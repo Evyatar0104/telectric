@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "שירותים", href: "#services" },
-    { name: "עלינו", href: "#about" },
+    { name: "אודות", href: "#about" },
     { name: "המלצות", href: "#testimonials" },
     { name: "צור קשר", href: "#contact" },
   ];
@@ -45,7 +45,18 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Center: Desktop Nav (Hidden as per request, but usually good to have. User didn't specify links in navbar, but asked for "Logo right" and "Left side: buttons". I'll stick to that but keep it clean) */}
+          {/* Center: Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8" dir="rtl">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
           
           {/* Left side: Buttons */}
           <div className="hidden md:flex items-center gap-4">

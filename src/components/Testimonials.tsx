@@ -41,15 +41,27 @@ export default function Testimonials() {
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ 
+                opacity: 0, 
+                x: index === 0 ? 20 : index === 2 ? -20 : 0,
+                y: index === 1 ? 20 : 0
+              }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.12, duration: 0.6, ease: "easeOut" }}
               className="bg-surface p-8 rounded-card border border-white/5 relative"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-accent fill-accent" />
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0.2 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (index * 0.12) + (i * 0.08), duration: 0.3 }}
+                  >
+                    <Star size={16} className="text-accent fill-accent" />
+                  </motion.div>
                 ))}
               </div>
               <p className="text-white text-lg mb-8 leading-relaxed italic">

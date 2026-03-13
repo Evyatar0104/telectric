@@ -35,14 +35,23 @@ export default function Hero() {
           <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tighter">
             חשמל מקצועי. <br />
             מחיר הוגן. <br />
-            <span className="text-accent underline decoration-4 underline-offset-8">בלי קיצורי דרך.</span>
+            <span className="relative inline-block text-accent">
+              בלי קיצורי דרך.
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute -bottom-2 right-0 h-1.5 bg-accent rounded-full"
+              />
+            </span>
           </h1>
           
           <p className="text-lg md:text-xl text-white/80 max-w-xl mr-0 ml-auto mb-10 leading-relaxed font-medium">
-            טל — חשמלאי מוסמך שמגיע בזמן, עובד נקי, ומתמחר בהגינות.
+            טל — חשמלאי מוסמך באזור השרון והמרכז. מגיע בזמן, עובד נקי, ומתמחר בהגינות.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-end">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-start">
             <a
               href="https://api.whatsapp.com/send?phone=9720535250335&text=היי טל, ראיתי את האתר שלך ורוצה לשמוע פרטים"
               target="_blank"
@@ -61,19 +70,27 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-6 justify-end items-center text-white/90">
-            <div className="flex items-center gap-2 text-sm font-bold bg-white/5 py-2 px-4 rounded-full border border-white/10">
-              <Zap size={16} className="text-accent" />
-              ייעוץ ראשוני חינם
-            </div>
-            <div className="flex items-center gap-2 text-sm font-bold bg-white/5 py-2 px-4 rounded-full border border-white/10">
-              <Clock size={16} className="text-accent" />
-              זמין 24 שעות
-            </div>
-            <div className="flex items-center gap-2 text-sm font-bold bg-white/5 py-2 px-4 rounded-full border border-white/10">
-              <CheckCircle2 size={16} className="text-accent" />
-              מחיר שקוף מראש
-            </div>
+          <div className="flex flex-wrap gap-6 justify-start items-center text-white/90">
+            {[
+              { icon: Zap, text: "ייעוץ ראשוני חינם" },
+              { icon: Clock, text: "זמין 24 שעות" },
+              { icon: CheckCircle2, text: "מחיר שקוף מראש" }
+            ].map((badge, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: 0.8 + (index * 0.15), 
+                  duration: 0.5,
+                  ease: "easeOut"
+                }}
+                className="flex items-center gap-2 text-sm font-bold bg-white/5 py-2 px-4 rounded-full border border-white/10"
+              >
+                <badge.icon size={16} className="text-accent" />
+                {badge.text}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

@@ -27,7 +27,7 @@ export default function FloatingWhatsApp() {
           href="https://api.whatsapp.com/send?phone=9720535250335&text=היי טל, ראיתי את האתר שלך ורוצה לשמוע פרטים"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 left-6 z-[60] w-16 h-16 bg-accent text-black rounded-full flex items-center justify-center shadow-lg hover:shadow-accent/20 transition-shadow group"
+          className="fixed bottom-6 left-6 z-[60] w-16 h-16 bg-accent text-black rounded-full md:hidden flex items-center justify-center shadow-lg hover:shadow-accent/20 transition-shadow group"
           aria-label="Contact on WhatsApp"
         >
           <WhatsAppIcon size={32} />
