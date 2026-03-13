@@ -53,7 +53,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-white text-lg mb-8 leading-relaxed italic">
-                "{t.text}"
+                &quot;{t.text}&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-accent text-black rounded-full flex items-center justify-center font-bold text-sm">

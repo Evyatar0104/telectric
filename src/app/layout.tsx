@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -11,12 +12,7 @@ const heebo = Heebo({
 export const metadata: Metadata = {
   title: "T-Electric ꟾ טל נחמני",
   description: "טל חשמלאי מוסמך - עבודות חשמל מקצועיות במחירים הוגנים. זמין 24 שעות ביממה.",
-  icons: {
-    icon: "/icon.png",
-  },
 };
-
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function RootLayout({
   children,
